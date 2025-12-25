@@ -11,6 +11,7 @@ export type PostMeta = {
   title: string;
   date: string;
   description: string;
+  tags?: string[];
 };
 
 export type Post = PostMeta & {
@@ -67,4 +68,18 @@ export function getPostMetaBySlug(slug: string) {
     title: data.title as string,
     description: data.description as string,
   };
+}
+
+export function getAllTags(): string[] {
+  const posts = getAllPosts();
+
+  const tags = posts.flatMap((post) => post.tags ?? []);
+
+  return Array.from(new Set(tags)).sort();
+}
+
+export function getPostsByTag(tag: string): PostMeta[] {
+  const posts = getAllPosts();
+
+  return posts.filter((post) => post.tags?.includes(tag));
 }

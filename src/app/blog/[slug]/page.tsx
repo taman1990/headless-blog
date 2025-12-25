@@ -47,6 +47,22 @@ export default async function PostPage({
   return (
     <main className="max-w-3xl mx-auto py-16">
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+
+    {post.tags && (
+      <ul className="flex gap-2 mb-6">
+        {post.tags.map((tag) => (
+          <li key={tag}>
+            <a
+              href={`/tags/${tag}`}
+              className="text-sm underline"
+            >
+              #{tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
       <p className="text-gray-500 mb-8">{post.date}</p>
 
       <article
