@@ -56,3 +56,15 @@ export function getPostBySlug(slug: string): Post {
     ...(data as Omit<PostMeta, "slug">),
   };
 }
+
+export function getPostMetaBySlug(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  const { data } = matter(fileContents);
+
+  return {
+    title: data.title as string,
+    description: data.description as string,
+  };
+}

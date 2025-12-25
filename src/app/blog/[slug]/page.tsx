@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { remark } from "remark";
 import html from "remark-html";
+import type { Metadata } from "next";
+import { getPostMetaBySlug } from "@/lib/posts";
 
 export const dynamicParams = false;
 
@@ -10,6 +12,20 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const meta = getPostMetaBySlug(slug);
+
+  return {
+    title: meta.title,
+    description: meta.description,
+  };
 }
 
 export default async function PostPage({

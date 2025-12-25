@@ -1,16 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-
 # Headless Blog Frontend
 
-A minimal, open-source blog frontend built with Next.js, Markdown, and Tailwind CSS.
+A minimal, open-source blog frontend built with **Next.js**, **Markdown**, and **Tailwind CSS**.  
+Designed to be fast, simple, and easy to extend with a headless CMS.
 
 ## Features
-- Markdown-based posts
-- Static generation (SSG)
+- Markdown-based blog posts
+- Static site generation (SSG)
+- Clean, readable typography
 - SEO-friendly URLs
-- Clean typography
-- Ready for headless CMS integration
+- CMS-ready architecture
 
 ## Tech Stack
 - Next.js (App Router)
@@ -19,13 +17,8 @@ A minimal, open-source blog frontend built with Next.js, Markdown, and Tailwind 
 - Markdown (gray-matter, remark)
 
 ## Getting Started
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
