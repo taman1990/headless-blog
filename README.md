@@ -17,8 +17,11 @@ Designed to be fast, simple, and easy to extend with a headless CMS.
 - Markdown (gray-matter, remark)
 
 ## Getting Started
-Install dependencies and start the dev server:
 
+Click **Use this template** on GitHub to create a new blog project
+based on this repository.
+
+Install dependencies and start the dev server:
 ```bash
 npm install
 npm run dev

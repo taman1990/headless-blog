@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/posts";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://headless-blog-psi.vercel.app/"; // change this
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const posts = getAllPosts();
 
   const postEntries = posts.map((post) => ({

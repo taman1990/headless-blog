@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/posts";
 export async function GET() {
   const posts = getAllPosts();
 
-  const siteUrl = "https://headless-blog-psi.vercel.app"; // change this
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const blogUrl = `${siteUrl}/blog`;
   const feedUrl = `${siteUrl}/rss.xml`;
 
