@@ -1,5 +1,7 @@
 # Headless Blog Frontend
 
+**Live Demo:** https://headless-blog-psi.vercel.app
+
 A minimal, open-source blog frontend built with **Next.js**, **Markdown**, and **Tailwind CSS**.  
 Designed to be fast, simple, and easy to extend with a headless CMS.
 
