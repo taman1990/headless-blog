@@ -1,1 +1,97 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  /*typography*/
+  article {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+  article p {
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+  }
+  article h1,
+  article h2,
+  article h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+  article h1 {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+  article h2 {
+    font-size: 1.6rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+  }
+  article h3 {
+    font-size: 1.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  article a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  article a:hover {
+    text-decoration: underline;
+  }
+  article ul,
+  article ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+  }
+  article li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+  article blockquote {
+    border-left: 2px solid var(--color-border);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    color: var(--color-text-secondary);
+    font-style: normal;
+  }
+  article code {
+    background: var(--color-surface);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    font-size: 0.95em;
+  }
+  article pre {
+    background: var(--color-surface);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+  }
+  article pre code {
+    background: none;
+    padding: 0;
+  }
+  article img {
+    border-radius: 6px;
+    margin: 2rem 0;
+  }
+}
+
+@theme {
+  --color-bg: #1e1e1e;
+  --color-surface: #252526;
+  --color-border: #2d2d2d;
+
+  --color-text-primary: #d4d4d4;
+  --color-text-secondary: #9da1a6;
+  --color-text-muted: #7a7f85;
+
+  --color-accent: #3794ff;
+
+  --radius-sm: 4px;
+  --transition-fast: 150ms ease;
+}

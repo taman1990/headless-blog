@@ -6,7 +6,7 @@ export default function BlogPage() {
 
   return (
     <main className="max-w-3xl mx-auto py-16">
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
+      <h1 className="text-3xl font-bold mb-8 font-semibold tracking-tight">Blog</h1>
 
       <ul className="space-y-6">
         {posts.map((post) => (
@@ -17,7 +17,9 @@ export default function BlogPage() {
             >
               {post.title}
             </Link>
-            <p className="text-gray-500">{post.description}</p>
+            <p className="text-text-muted max-w-lg text-sm leading-relaxed">
+              {post.description}
+            </p>
           </li>
         ))}
       </ul>

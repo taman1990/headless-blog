@@ -14,7 +14,7 @@ export default function Footer() {
               href="https://github.com/taman1990/headless-blog"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="hover:underline transition-colors hover:text-accent"
             >
               GitHub
             </a>
@@ -22,7 +22,7 @@ export default function Footer() {
           <li>
             <a
               href="/rss.xml"
-              className="hover:underline"
+              className="hover:underline transition-colors hover:text-accent"
               target="_blank"
               rel="noopener noreferrer"
             >
