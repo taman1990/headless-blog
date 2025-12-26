@@ -28,7 +28,7 @@ export default function HomePage() {
         Latest Posts
       </h2>
 
-      <ul className="space-y-12">
+      <ul className="space-y-6">
         {posts.map((post) => (
           <li key={post.slug}>
             <Link
@@ -52,7 +52,7 @@ export default function HomePage() {
         <div className="mt-24">
           <Link
             href="/blog"
-            className="text-sm text-text-secondary hover:text-accent transition-colors"
+            className="text-sm text-text-secondary hover:text-accent hover:underline transition-colors"
           >
             View all posts →
           </Link>
