@@ -8,13 +8,13 @@ export default function HomePage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-24">
       {/* Intro */}
-      <section className="mb-20">
-        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+      <section className="mb-24">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
           A modern gaming blog,<br />
           built like a developer tool.
         </h1>
 
-        <p className="text-text-secondary max-w-xl text-lg">
+        <p className="text-text-secondary max-w-lg text-base leading-relaxed">
           A dark, fast, and minimal blog template inspired by VS Code.
           Built with Next.js, Markdown, and Tailwind.
         </p>
@@ -24,11 +24,11 @@ export default function HomePage() {
 
       {/* Latest posts */}
       <section>
-      <h2 className="text-sm uppercase tracking-widest text-text-muted mb-8">
+      <h2 className="text-xs uppercase tracking-widest text-text-muted mb-10">
         Latest Posts
       </h2>
 
-      <ul className="space-y-10">
+      <ul className="space-y-12">
         {posts.map((post) => (
           <li key={post.slug}>
             <Link
@@ -49,10 +49,10 @@ export default function HomePage() {
         <ul className="space-y-10">
 
         </ul>
-        <div className="mt-16">
+        <div className="mt-24">
           <Link
             href="/blog"
-            className="text-sm text-secondary transition-colors link-hover"
+            className="text-sm text-text-secondary hover:text-accent transition-colors"
           >
             View all posts →
           </Link>
