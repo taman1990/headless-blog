@@ -22,6 +22,17 @@ Designed to feel like a developer tool — fast, clean, and headless by default.
 - 🏷️ Tags, pagination, RSS & sitemap
 - 🔍 SEO-friendly by default
 
+## Who This Is For
+
+**This project is for:**
+- Developers who want a clean, headless blog frontend
+- People comfortable editing Markdown files
+- Anyone who wants a fast, minimal, opinionated setup
+
+**This project is not for:**
+- No-code tools or drag-and-drop builders
+- Full CMS dashboards out of the box
+- Heavy themes with endless configuration
 
 ## Tech Stack
 
