@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const options = [
   { value: "system", label: "System" },
@@ -14,14 +14,40 @@ export default function ThemeDropdown() {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Mount guard (hydration-safe)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Click-outside handler (ALWAYS declared)
+  useEffect(() => {
+    if (!open) return;
+
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   if (!mounted) return null;
 
   const current =
     theme === "system" ? systemTheme ?? "dark" : theme;
 
   return (
-    <div className="relative">
+    <div ref={containerRef} className="relative">
       {/* Trigger button */}
       <button
         type="button"
@@ -90,11 +116,7 @@ export default function ThemeDropdown() {
                   >
                     {/* Checkmark column */}
                     <span
-                      className="
-                        w-4 text-center
-                        text-xs
-                        opacity-100
-                      "
+                      className="w-4 text-center text-xs"
                       aria-hidden
                     >
                       {isActive ? "✓" : ""}

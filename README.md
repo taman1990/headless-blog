@@ -1,9 +1,17 @@
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-App%20Router-black)](https://nextjs.org)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8)](https://tailwindcss.com)
+![Status](https://img.shields.io/badge/status-stable-success)
+
 # Headless Blog Frontend
 
-**Live Demo:** https://headless-blog-psi.vercel.app
+A minimal, dark, developer-first blog template built with **Next.js**, **Markdown**, and **Tailwind CSS**.  
+Designed to feel like a developer tool — fast, clean, and headless by default.
 
-A minimal, open-source blog frontend built with **Next.js**, **Markdown**, and **Tailwind CSS**.  
-Designed to be fast, simple, and easy to extend with a headless CMS.
+![Headless Blog Screenshot](./public/screenshot.png)
+
+
+**Live Demo:** https://headless-blog-psi.vercel.app
 
 ## Features
 - Markdown-based blog posts

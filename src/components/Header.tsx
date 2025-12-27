@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function Header() {
   // Centralized link styling so active/hover logic stays consistent.
   const linkClass = (href: string) =>
     isActive(href)
-      ? "text-accent"
+      ? "text-accent font-semibold"
       : "text-text-secondary transition-colors hover:text-accent";
 
   return (
@@ -31,12 +32,13 @@ export default function Header() {
         "
       >
         {/* Brand: kept simple and left-aligned for fast recognition */}
-        <Link
-          href="/"
-          className="font-semibold tracking-tight"
-        >
-          Headless Blog
-        </Link>
+<Link
+  href="/"
+  className="flex items-center gap-2 font-semibold tracking-tight"
+>
+  <Logo />
+  <span>Headless Blog</span>
+</Link>
 
         {/* Navigation
             - Wraps on mobile instead of overflowing
