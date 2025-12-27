@@ -10,13 +10,6 @@ import { chromium } from "playwright";
     waitUntil: "networkidle",
   });
 
-  // Force dark mode (important for your branding)
-  await page.addStyleTag({
-    content: `
-      html { background: #1e1e1e !important; }
-    `,
-  });
-
   await page.screenshot({
     path: "public/screenshot.png",
     fullPage: false,

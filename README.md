@@ -14,24 +14,31 @@ Designed to feel like a developer tool — fast, clean, and headless by default.
 **Live Demo:** https://headless-blog-psi.vercel.app
 
 ## Features
-- Markdown-based blog posts
-- Static site generation (SSG)
-- Clean, readable typography
-- SEO-friendly URLs
-- CMS-ready architecture
+
+- ⚡ App Router + Static Generation
+- 📝 Markdown-based content
+- 🧠 Headless CMS–style architecture
+- 🌙 Dark / Light / System theme support
+- 🏷️ Tags, pagination, RSS & sitemap
+- 🔍 SEO-friendly by default
+
 
 ## Tech Stack
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
-- Markdown (gray-matter, remark)
+
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS v4
+- **Content:** Markdown + gray-matter
+- **Typography:** Tailwind Typography
+- **Themes:** next-themes
+- **Deployment:** Vercel
+
 
 ## Getting Started
 
-Click **Use this template** on GitHub to create a new blog project
-based on this repository.
-
-Install dependencies and start the dev server:
 ```bash
 npm install
 npm run dev
+
+## License
+
+MIT — free to use, modify, and distribute.
