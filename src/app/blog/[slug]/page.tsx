@@ -50,6 +50,8 @@ export default async function PostPage({
   }
 
   const posts = getAllPosts();
+
+  // Locate current post index to enable prev/next navigation
   const postIndex = posts.findIndex((p) => p.slug === slug);
 
   if (postIndex === -1) {
@@ -59,16 +61,18 @@ export default async function PostPage({
   const post = getPostBySlug(slug);
 
   // Posts are sorted newest → oldest
-  const prevPost = posts[postIndex + 1] ?? null; // older
-  const nextPost = posts[postIndex - 1] ?? null; // newer
+  // Previous = older, Next = newer
+  const prevPost = posts[postIndex + 1] ?? null;
+  const nextPost = posts[postIndex - 1] ?? null;
 
   const processed = await remark().use(html).process(post.content);
   const contentHtml = processed.toString();
 
   return (
-    <main className="max-w-3xl mx-auto py-16">
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm">
-        <ol className="flex items-center gap-2 text-text-muted">
+    <main className="max-w-3xl mx-auto py-24">
+      {/* Breadcrumbs provide orientation for deep links and SEO context */}
+      <nav aria-label="Breadcrumb" className="mb-6 text-sm overflow-hidden">
+        <ol className="flex items-center gap-2 text-text-muted whitespace-nowrap">
           <li>
             <Link
               href="/"
@@ -91,18 +95,20 @@ export default async function PostPage({
 
           <li>/</li>
 
+          {/* Truncated to avoid layout breakage on small screens */}
           <li className="text-text-secondary truncate max-w-[16rem]">
             {post.title}
           </li>
         </ol>
       </nav>
-      
+
       <h1 className="text-4xl font-semibold tracking-tight mb-4">
         {post.title}
       </h1>
 
+      {/* Tags act as secondary navigation, not metadata */}
       {post.tags && (
-        <ul className="flex gap-2 mb-6">
+        <ul className="flex flex-wrap gap-2 mb-6">
           {post.tags.map((tag) => (
             <li key={tag}>
               <Link
@@ -125,18 +131,18 @@ export default async function PostPage({
         </ul>
       )}
 
-      {/* Date (fixed typo) */}
+      {/* Publication date is intentionally low-emphasis */}
       <p className="text-text-secondary text-sm">
         {post.date}
       </p>
 
-      {/* Content — kept exactly */}
+      {/* Article content rendered from Markdown — untouched by layout logic */}
       <article
         className="max-w-3xl mx-auto px-4 py-24"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
 
-      {/* Prev / Next navigation */}
+      {/* Prev / Next navigation encourages linear reading */}
       <nav className="mt-24 flex justify-between gap-8 text-sm">
         {prevPost ? (
           <Link

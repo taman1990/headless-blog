@@ -1,36 +1,46 @@
 export default function Footer() {
   return (
-    <footer className="border-t mt-20">
-      <div className="max-w-3xl mx-auto px-4 py-8 text-sm text-gray-500 flex flex-col sm:flex-row justify-between gap-4">
-        {/* Left */}
+    <footer className="border-t border-border mt-24">
+      <div
+        className="
+          max-w-3xl mx-auto px-4 py-8
+          text-sm text-text-muted
+          flex flex-col gap-4
+          sm:flex-row sm:items-center sm:justify-between
+        "
+      >
+        {/* Left: simple copyright, kept minimal to avoid visual noise */}
         <p>
           © {new Date().getFullYear()} Headless Blog Frontend
         </p>
 
-        {/* Right */}
-        <ul className="flex gap-4">
+        {/* Right: secondary navigation links, low emphasis by design */}
+        <ul className="flex flex-wrap gap-x-6 gap-y-2">
           <li>
             <a
               href="https://github.com/taman1990/headless-blog"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline transition-colors hover:text-accent"
+              className="transition-colors hover:text-accent"
             >
               GitHub
             </a>
           </li>
+
           <li>
             <a
               href="/rss.xml"
-              className="hover:underline transition-colors hover:text-accent"
               target="_blank"
               rel="noopener noreferrer"
+              className="transition-colors hover:text-accent"
             >
               RSS
             </a>
           </li>
-          <li>
-            <span>MIT License</span>
+
+          {/* License is informational, not a navigation target */}
+          <li className="text-text-secondary">
+            MIT License
           </li>
         </ul>
       </div>
