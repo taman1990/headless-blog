@@ -32,13 +32,12 @@ Designed to feel like a developer tool — fast, clean, and headless by default.
 - **Themes:** next-themes
 - **Deployment:** Vercel
 
+## License
+
+MIT — free to use, modify, and distribute.
 
 ## Getting Started
 
 ```bash
 npm install
 npm run dev
-
-## License
-
-MIT — free to use, modify, and distribute.
