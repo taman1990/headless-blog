@@ -13,12 +13,10 @@ export default function HomePage() {
           Kept short to avoid pushing content below the fold on mobile */}
       <section className="mb-24">
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-5">
-          A modern gaming blog,<br />
-          built like a developer tool.
+          A modern gaming blog designed for clarity and speed.<br />
         </h1>
 
         <p className="text-text-secondary max-w-lg text-base leading-relaxed">
-          A dark, fast, and minimal blog template inspired by VS Code.
           Built with Next.js, Markdown, and Tailwind.
         </p>
       </section>

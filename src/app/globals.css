@@ -1,87 +1,80 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @layer base {
   body {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
-  /*typography*/
-  article {
-    font-size: 1.05rem;
-    line-height: 1.75;
-  }
-  article p {
-    color: var(--color-text-primary);
-    margin-bottom: 1.5rem;
-  }
-  article h1,
-  article h2,
-  article h3 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-text-primary);
-  }
-  article h1 {
-    font-size: 2.25rem;
-    margin-bottom: 2rem;
-  }
-  article h2 {
-    font-size: 1.6rem;
-    margin-top: 3rem;
-    margin-bottom: 1.25rem;
-  }
-  article h3 {
-    font-size: 1.25rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  article a {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-  article a:hover {
-    text-decoration: underline;
-  }
-  article ul,
-  article ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.25rem;
-  }
-  article li {
-    margin-bottom: 0.5rem;
-    color: var(--color-text-primary);
-  }
-  article blockquote {
-    border-left: 2px solid var(--color-border);
-    padding-left: 1rem;
-    margin: 2rem 0;
-    color: var(--color-text-secondary);
-    font-style: normal;
-  }
-  article code {
-    background: var(--color-surface);
-    padding: 0.15em 0.4em;
-    border-radius: 3px;
-    font-size: 0.95em;
-  }
-  article pre {
-    background: var(--color-surface);
-    padding: 1rem;
-    border-radius: 6px;
-    overflow-x: auto;
-    margin: 2rem 0;
-    font-size: 0.9rem;
-  }
-  article pre code {
-    background: none;
-    padding: 0;
-  }
-  article img {
-    border-radius: 6px;
-    margin: 2rem 0;
-  }
+}
+.prose {
+  --tw-prose-body: var(--color-text-primary);
+  --tw-prose-headings: var(--color-text-primary);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-text-primary);
+  --tw-prose-counters: var(--color-text-muted);
+  --tw-prose-bullets: var(--color-text-muted);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-text-secondary);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-captions: var(--color-text-muted);
+  --tw-prose-code: var(--color-accent);
+  --tw-prose-pre-code: var(--color-text-primary);
+  --tw-prose-pre-bg: var(--color-surface);
+}
+/* VS Code–style code blocks */
+.prose pre {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
+/* Inline code */
+.prose code {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+}
+
+/* Inline code only (not blocks) */
+.prose :not(pre) > code {
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface) 70%,
+    transparent
+  );
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+/* Reset typography plugin defaults */
+.prose pre code {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+/* 1️⃣ Register tokens with Tailwind (compile-time) */
 @theme {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-accent: var(--color-accent);
+
+  --radius-sm: 4px;
+  --transition-fast: 150ms ease;
+}
+
+/* 2️⃣ Dark mode values (runtime) */
+html.dark {
   --color-bg: #1e1e1e;
   --color-surface: #252526;
   --color-border: #2d2d2d;
@@ -91,7 +84,17 @@
   --color-text-muted: #7a7f85;
 
   --color-accent: #3794ff;
+}
 
-  --radius-sm: 4px;
-  --transition-fast: 150ms ease;
+/* 3️⃣ Light mode values (runtime) */
+html.light {
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-border: #e5e7eb;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+
+  --color-accent: #2563eb;
 }

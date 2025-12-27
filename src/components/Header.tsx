@@ -22,7 +22,7 @@ export default function Header() {
       : "text-text-secondary transition-colors hover:text-accent";
 
   return (
-    <header className="border-b border-border bg-bg">
+    <header className="border-b border-border bg-navbar">
       <nav
         className="
           max-w-3xl mx-auto px-4 py-4

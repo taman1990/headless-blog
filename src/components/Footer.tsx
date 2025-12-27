@@ -1,3 +1,5 @@
+import ThemeDropdown from "@/components/ThemeDropdown";
+
 export default function Footer() {
   return (
     <footer className="border-t border-border mt-24">
@@ -15,7 +17,7 @@ export default function Footer() {
         </p>
 
         {/* Right: secondary navigation links, low emphasis by design */}
-        <ul className="flex flex-wrap gap-x-6 gap-y-2">
+        <ul className="flex items-center gap-4">
           <li>
             <a
               href="https://github.com/taman1990/headless-blog"
@@ -41,6 +43,9 @@ export default function Footer() {
           {/* License is informational, not a navigation target */}
           <li className="text-text-secondary">
             MIT License
+          </li>
+          <li>
+            <ThemeDropdown />
           </li>
         </ul>
       </div>

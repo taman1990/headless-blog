@@ -69,7 +69,7 @@ export default async function PostPage({
   const contentHtml = processed.toString();
 
   return (
-    <main className="max-w-3xl mx-auto py-24">
+    <main className="max-w-3xl mx-auto py-24 px-4">
       {/* Breadcrumbs provide orientation for deep links and SEO context */}
       <nav aria-label="Breadcrumb" className="mb-6 text-sm overflow-hidden">
         <ol className="flex items-center gap-2 text-text-muted whitespace-nowrap">
@@ -138,7 +138,7 @@ export default async function PostPage({
 
       {/* Article content rendered from Markdown — untouched by layout logic */}
       <article
-        className="max-w-3xl mx-auto px-4 py-24"
+        className="prose prose-invert prose-sm max-w-none max-w-3xl mx-auto px-4 py-24"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
 
