@@ -22,8 +22,38 @@ export default async function TagPage({ params }: Props) {
   }
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-24">
+    <main className="max-w-3xl mx-auto px-4 py-16">
       <header className="mb-16">
+<nav aria-label="Breadcrumb" className="mb-6 text-sm">
+  <ol className="flex items-center gap-2 text-text-muted">
+    <li>
+      <Link
+        href="/"
+        className="hover:text-accent transition-colors"
+      >
+        Home
+      </Link>
+    </li>
+
+    <li>/</li>
+
+    <li>
+      <Link
+        href="/tags"
+        className="hover:text-accent transition-colors"
+      >
+        Tags
+      </Link>
+    </li>
+
+    <li>/</li>
+
+    <li className="text-text-secondary">
+      {tag}
+    </li>
+  </ol>
+</nav>
+
         <h1 className="text-3xl font-semibold tracking-tight mb-2">
           #{tag}
         </h1>
