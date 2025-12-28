@@ -5,8 +5,8 @@
 
 # Headless Blog Frontend
 
-A minimal, dark, developer-first blog template built with **Next.js**, **Markdown**, and **Tailwind CSS**.  
-Designed to feel like a developer tool — fast, clean, and headless by default.
+A dark, minimal, developer-first blog frontend built with **Next.js**, **Markdown**, and **Tailwind CSS** — fast, clean, and headless by design.
+
 
 ![Headless Blog Screenshot](./public/screenshot.png)
 
