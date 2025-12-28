@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "screenshot": "node scripts/screenshot.mjs"
+    "lint": "eslint"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
@@ -26,7 +25,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
-    "playwright": "^1.57.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
   }
