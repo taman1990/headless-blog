@@ -7,17 +7,21 @@ export default function Footer() {
         className="
           max-w-3xl mx-auto px-4 py-8
           text-sm text-text-muted
-          flex flex-col gap-4
-          sm:flex-row sm:items-center sm:justify-between
+          flex flex-col items-center gap-4
+          md:flex-row md:items-center md:justify-between
         "
       >
-        {/* Left: simple copyright, kept minimal to avoid visual noise */}
-        <p>
+        {/* Copyright
+           - Centered on mobile/tablet
+           - Left-aligned naturally on desktop via layout */}
+        <p className="text-center">
           © {new Date().getFullYear()} Headless Blog Frontend
         </p>
 
-        {/* Right: secondary navigation links, low emphasis by design */}
-        <ul className="flex items-center gap-4">
+        {/* Footer actions
+           - Centered group on mobile/tablet
+           - Inline row on desktop */}
+        <ul className="flex flex-wrap items-center justify-center gap-4">
           <li>
             <a
               href="https://github.com/taman1990/headless-blog"
@@ -40,10 +44,13 @@ export default function Footer() {
             </a>
           </li>
 
-          {/* License is informational, not a navigation target */}
+          {/* Informational label — not interactive */}
           <li className="text-text-secondary">
             MIT License
           </li>
+
+          {/* Theme toggle
+             - Treated like an action, not a link */}
           <li>
             <ThemeDropdown />
           </li>

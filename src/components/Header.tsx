@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Logo from "@/components/Logo";
+import { useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false); // controls mobile menu
 
-  // Determines whether a nav link should be highlighted as active.
-  // Special-cases "/" so Home doesn't appear active on every route.
+  // Determines if a nav link is active based on current route
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -16,58 +16,35 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
-  // Centralized link styling so active/hover logic stays consistent.
+  // Shared link styling with active state support
   const linkClass = (href: string) =>
     isActive(href)
       ? "text-accent font-semibold"
       : "text-text-secondary transition-colors hover:text-accent";
 
   return (
-    <header className="border-b border-border bg-navbar">
-      <nav
-        className="
-          max-w-3xl mx-auto px-4 py-4
-          flex flex-col gap-3
-          sm:flex-row sm:items-center sm:justify-between
-        "
-      >
-        {/* Brand: kept simple and left-aligned for fast recognition */}
-<Link
-  href="/"
-  className="flex items-center gap-2 font-semibold tracking-tight"
->
-  <Logo />
-  <span>Headless Blog</span>
-</Link>
+    <header className="border-b border-border bg-bg relative">
+      <nav className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Brand */}
+        <Link href="/" className="font-semibold tracking-tight">
+          Headless Blog
+        </Link>
 
-        {/* Navigation
-            - Wraps on mobile instead of overflowing
-            - Larger tap targets via py-2
-            - Horizontal layout restored on larger screens */}
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        {/* Desktop navigation */}
+        <ul className="hidden md:flex gap-6 text-sm">
           <li>
-            <Link href="/" className={`py-2 ${linkClass("/")}`}>
-              Home
-            </Link>
+            <Link href="/" className={linkClass("/")}>Home</Link>
           </li>
-
           <li>
-            <Link href="/blog" className={`py-2 ${linkClass("/blog")}`}>
-              Blog
-            </Link>
+            <Link href="/blog" className={linkClass("/blog")}>Blog</Link>
           </li>
-
           <li>
-            <Link href="/tags" className={`py-2 ${linkClass("/tags")}`}>
-              Tags
-            </Link>
+            <Link href="/tags" className={linkClass("/tags")}>Tags</Link>
           </li>
-
           <li>
-            {/* External link stays a plain <a> to avoid unnecessary client routing */}
             <a
               href="/rss.xml"
-              className="py-2 text-text-secondary transition-colors hover:text-accent"
+              className="text-text-secondary transition-colors hover:text-accent"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -75,7 +52,77 @@ export default function Header() {
             </a>
           </li>
         </ul>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setOpen(true)}
+          className="md:hidden text-text-secondary hover:text-accent transition-colors"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
       </nav>
+
+      {/* Overlay */}
+      <div
+        className={`
+          fixed inset-0 z-40 bg-black/40
+          transition-opacity
+          ${open ? "opacity-100" : "opacity-0 pointer-events-none"}
+        `}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Mobile side panel */}
+      <aside
+        className={`
+          fixed top-0 right-0 z-50 h-full w-1/2
+          bg-surface border-l border-border
+          transform transition-transform duration-300
+          ${open ? "translate-x-0" : "translate-x-full"}
+        `}
+      >
+        <div className="flex flex-col px-6 py-6 gap-6 text-sm">
+          {/* Close button */}
+          <button
+            onClick={() => setOpen(false)}
+            className="self-end text-text-muted hover:text-accent transition-colors"
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+
+          <Link href="/" className={linkClass("/")} onClick={() => setOpen(false)}>
+            Home
+          </Link>
+
+          <Link
+            href="/blog"
+            className={linkClass("/blog")}
+            onClick={() => setOpen(false)}
+          >
+            Blog
+          </Link>
+
+          <Link
+            href="/tags"
+            className={linkClass("/tags")}
+            onClick={() => setOpen(false)}
+          >
+            Tags
+          </Link>
+
+          <a
+            href="/rss.xml"
+            className="text-text-secondary hover:text-accent transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            RSS
+          </a>
+        </div>
+      </aside>
     </header>
   );
 }
